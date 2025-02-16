@@ -10,28 +10,26 @@ const Navbar = () => {
   };
   return (
     <div
-      className={`navbar w-full h-16 top-0 sticky z-10 flex justify-between items-center px-4 sm:px-8 lg:px-16 ${
-        isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
-      }`}
-    >
+      className={`navbar px-10 my-2 w-full h-16 top-0 sticky z-10 flex justify-between items-center rounded-lg ${
+        isDarkMode ? 'bg-[#131313] text-white' : 'bg-[#fffefe] text-black'
+      }`}>
       <div
-        className={`search_box hidden sm:flex items-center h-10 px-4 rounded-full ${
-          isDarkMode ? 'bg-black' : 'bg-gray-200'
-        }`}
-      >
+        className={`search_box flex items-center h-10 rounded-full ${
+          isDarkMode ? 'bg-white' : 'bg-[#131313]'
+        }`}>
         <input
           type="text"
-          className="border-none outline-none placeholder:text-gray-400 bg-transparent"
+          className={`border-none w-xs px-2 outline-none ${isDarkMode?'placeholder:text-black  text-black ':'placeholder:text-white text-white'} bg-transparent`}
           placeholder="Search..."
         />
-        <FaSearch className="ml-2 cursor-pointer" />
+        <FaSearch className={`mr-5 cursor-pointer ${isDarkMode?'text-black':'text-white'}`} />
       </div>
 
 
       <div className="flex items-center space-x-4">
 
         <div
-          className={`notification flex items-center justify-center h-10 w-10 rounded-full ${
+          className={`flex items-center justify-center h-10 w-10 rounded-full ${
             isDarkMode ? 'bg-gray-700' : 'bg-gray-100'
           }`}
         >
