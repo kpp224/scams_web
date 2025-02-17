@@ -1,12 +1,8 @@
-import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-
+import React from 'react'
 
 const Home = () => {
   return (
-    <div className='w-[90%] ml-auto mr-10'>
-      <Navbar />
-    </div>
+    <div>Home</div>
   )
 }
 
