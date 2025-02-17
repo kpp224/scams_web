@@ -29,7 +29,7 @@ const Feed = () => {
       </div>
 
       {/* Scrollable Feed Posts */}
-      <div className='h-[80%] overflow-y-auto space-y-5 pr-2 scrollbar-hide'>
+      <div className='h-[80%] overflow-y-auto space-y-4 pr-2 scrollbar-hide'> 
 
         <div className='bg-gray-200 border border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center space-x-4 mb-2'>
