@@ -5,7 +5,7 @@ import TRCELogo from '../../assests/TRCELogo.png';
 
 const Sidebar = () => {
   return (
-    <div className='h-full w-full flex flex-col items-center bg-white text-black'>
+    <div className='h-full w-full flex flex-col items-center bg-green-200 text-black'>
       <div className="logo flex items-center my-4">
         <img src={TRCELogo} alt="Logo" className="w-25 h-10 mr-12" />
       </div>
