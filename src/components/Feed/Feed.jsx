@@ -3,9 +3,9 @@ import { FaCamera, FaPaperclip, FaRobot, FaThumbsUp, FaComment, FaShare } from '
 
 const Feed = () => {
   return (
-    <div className=' w-[90vh] overflow-y-auto scrollbar-hide space-y-4 h-[90vh] overflow-hidden'>
+    <div className=' w-[90vh]  overflow-y-auto scrollbar-hide space-y-4 h-[90vh] overflow-hidden'>
       {/* Create Post Box */}
-      <div className='bg-gray-200 border w-[100%] border-gray-300 p-2 rounded-2xl'>
+      <div className='bg-[#ffffff] border w-[100%] border-gray-300 p-2 rounded-2xl'>
         <div className='flex items-start space-x-3'>
           {/* Profile Image */}
           <div className='w-10 h-9 bg-gray-400 cursor-pointer rounded-full'></div>
@@ -41,7 +41,7 @@ const Feed = () => {
       {/* Scrollable Feed Posts */}
       <div className='h-[80%] w-[100%]  space-y-4  scrollbar-hide'> 
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>
@@ -94,7 +94,7 @@ const Feed = () => {
           </div>
         </div>
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>
@@ -147,7 +147,7 @@ const Feed = () => {
           </div>
         </div>
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>
@@ -200,7 +200,7 @@ const Feed = () => {
           </div>
         </div>
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>
@@ -253,7 +253,7 @@ const Feed = () => {
           </div>
         </div>
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>
@@ -306,7 +306,7 @@ const Feed = () => {
           </div>
         </div>
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>
@@ -359,7 +359,7 @@ const Feed = () => {
           </div>
         </div>
 
-        <div className='bg-gray-200 border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
+        <div className='bg-[#ffffff] border h-auto border-gray-300 p-4 rounded-2xl shadow-md'>
           <div className='flex items-center cursor-pointer space-x-4 mb-2'>
             <div className='w-8 h-8 bg-gray-400 rounded-full'></div>
             <div>

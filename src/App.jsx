@@ -12,10 +12,10 @@ import Logout from './Pages/Logout/Logout';
 const App = () => {
   return (
     <div className='flex'>
-      <div className='w-[15%] bg-gray-100 h-screen'>
+      <div className='w-[15%] h-screen'>
         <Sidebar />
       </div>
-      <div className='w-[85%] bg-gray-100 h-screen'>
+      <div className='w-[85%] h-screen'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />

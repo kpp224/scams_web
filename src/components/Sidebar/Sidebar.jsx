@@ -8,7 +8,7 @@ const Sidebar = () => {
   const [activeLink, setActiveLink] = useState(location.pathname); // Track active link
 
   return (
-    <div className='h-full w-auto bg-white text-black flex flex-col items-start p-4'>
+    <div className='h-full w-auto text-black flex flex-col items-start p-4'>
       {/* Logo Section */}
       <div className="logo flex items-center my-4 ml-3 cursor-pointer">
         <Link to='/'><img src={TRCELogo} alt="Logo" className="w-20 h-8" /></Link> 
