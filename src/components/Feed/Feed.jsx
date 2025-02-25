@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaCamera, FaPaperclip, FaRobot, FaThumbsUp, FaComment, FaShare } from 'react-icons/fa';
 
+
 const Feed = () => {
+
   return (
     <div className=' w-[90vh]  overflow-y-auto scrollbar-hide space-y-4 h-[90vh] overflow-hidden'>
       {/* Create Post Box */}
@@ -38,6 +40,11 @@ const Feed = () => {
         </div>
       </div>
 
+      <div className='flex justify-around items-center'>
+        <hr className='w-[95%] h-[1px] text-[#646464]' />
+      </div>
+      
+
       {/* Scrollable Feed Posts */}
       <div className='h-[80%] w-[100%]  space-y-4  scrollbar-hide'> 
 
@@ -49,7 +56,7 @@ const Feed = () => {
               <p className='text-xs text-gray-500'>Posted 2 hours ago</p>
             </div>
           </div>
-          <p className='text-sm mb-2'>
+          <p className='text-sm mb-2 '>
             This is a sample post description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             This is a sample post description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             This is a sample post description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.

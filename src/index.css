@@ -1,6 +1,6 @@
 /* filepath: /Users/gadgetzone/Documents/IN-HOUSE PROJECT/TRCE/scam_webInfo/src/index.css */
 @import "tailwindcss";
-@tailwind components;
+/* @tailwind components; */
 @tailwind utilities;
 
 @layer base {
