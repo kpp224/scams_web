@@ -3,7 +3,7 @@ import { FaCamera, FaPaperclip, FaRobot, FaThumbsUp, FaComment, FaShare } from '
 
 const Feed = () => {
   return (
-    <div className='bg-white w-[90vh] overflow-y-auto scrollbar-hide space-y-4 h-[90vh] overflow-hidden'>
+    <div className=' w-[90vh] overflow-y-auto scrollbar-hide space-y-4 h-[90vh] overflow-hidden'>
       {/* Create Post Box */}
       <div className='bg-gray-200 border w-[100%] border-gray-300 p-2 rounded-2xl'>
         <div className='flex items-start space-x-3'>

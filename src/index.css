@@ -3,12 +3,14 @@
 
 @layer base {
   * {
-    @apply m-0 p-0 box-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }
 
 body {
-  @apply bg-gray-100;
+  background-color: #f7fafc; /* Equivalent to bg-gray-100 in Tailwind CSS */
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
   font-weight: 550;
 }
