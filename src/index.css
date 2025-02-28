@@ -1,7 +1,6 @@
-/* filepath: /Users/gadgetzone/Documents/IN-HOUSE PROJECT/TRCE/scam_webInfo/src/index.css */
+
 @import "tailwindcss";
-/* @tailwind components; */
-@tailwind utilities;
+
 
 @layer base {
   * {
@@ -25,4 +24,141 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none; 
   scrollbar-width: none; 
+}
+
+/* Icon Animations */
+.icon {
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2); /* Enlarge icon on hover */
+}
+
+/* Unique Colors and Effects for Each Icon */
+.camera-icon:hover {
+  color: #3b82f6; /* Blue for camera */
+  filter: drop-shadow(0 0 5px #3b82f6); /* Glow effect */
+}
+
+.attachment-icon:hover {
+  color: #6b7280; /* Gray for attachment */
+  filter: drop-shadow(0 0 5px #6b7280); /* Glow effect */
+}
+
+.ai-icon:hover {
+  color: #ef4444; /* Red for AI */
+  filter: drop-shadow(0 0 5px #ef4444); /* Glow effect */
+}
+
+.like-icon:hover {
+  color: #ef4444; /* Red for like */
+  filter: drop-shadow(0 0 5px #ef4444); /* Glow effect */
+}
+
+.comment-icon:hover {
+  color: #6b7280; /* Gray for comment */
+  filter: drop-shadow(0 0 5px #6b7280); /* Glow effect */
+}
+
+.share-icon:hover {
+  color: #10b981; /* Green for share */
+  filter: drop-shadow(0 0 5px #10b981); /* Glow effect */
+}
+
+/* Click Effects */
+.icon:active {
+  transform: scale(0.9); /* Shrink on click */
+}
+
+/* Comment Box Animation */
+form {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon Animations */
+.icon {
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2); 
+}
+
+.camera-icon:hover {
+  color: #3b82f6; 
+  filter: drop-shadow(0 0 5px #3b82f6); 
+}
+
+.attachment-icon:hover {
+  color: #6b7280; 
+  filter: drop-shadow(0 0 5px #6b7280); 
+}
+
+.like-icon:hover {
+  color: #ef4444; 
+  filter: drop-shadow(0 0 5px #ef4444); 
+}
+
+.comment-icon:hover {
+  color: #6b7280; 
+  filter: drop-shadow(0 0 5px #6b7280); 
+}
+
+.share-icon:hover {
+  color: #10b981; 
+  filter: drop-shadow(0 0 5px #10b981); 
+}
+
+.ai-icon:hover {
+  color: #ef4444; 
+  filter: drop-shadow(0 0 5px #ef4444); 
+}
+
+/* Click Effects */
+.icon:active {
+  transform: scale(0.9); 
+}
+
+/* Comment Box Animation */
+form {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Menu Animation */
+.menu-options {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
