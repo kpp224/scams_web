@@ -10,7 +10,7 @@ import {
   MdReport,
   MdDone,
   MdClose,
-} from 'react-icons/md'; // Material Icons
+} from 'react-icons/md'; 
 
 const Feed = () => {
   const [image, setImage] = useState(null);
@@ -24,7 +24,7 @@ const Feed = () => {
       time: '2 hours ago',
       content:
         'As technology advances, so do cyber threats. Cybercrime has become a global crisis, affecting individuals, businesses, and governments. From phishing attacks and ransomware to identity theft and data breaches, hackers are constantly finding new ways to exploit vulnerabilities. Research in cybercrime is crucial to developing stronger security measures, AI-driven threat detection, and global cybersecurity policies. Awareness, digital literacy, and ethical hacking play a key role in combating online threats. Stay informed, stay secure! 🔒💻',
-      image: 'https://create.microsoft.com/_next/image?url=https%3A%2F%2Fcdn.create.microsoft.com%2Fimages%2Fimage-creator-T04_scientist.webp&w=1920&q=90/600x400',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ91Cj2MN7nGbINor10wBMHJCapdjxuW9UUVw&s/600x400',
       likes: 12,
       comments: 8,
       shares: 7,
@@ -48,8 +48,6 @@ const Feed = () => {
       showMenu: false,
     },
   ]);
-
-  // Handle image upload
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -57,7 +55,6 @@ const Feed = () => {
     }
   };
 
-  // Handle attachment upload
   const handleAttachmentUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -65,12 +62,10 @@ const Feed = () => {
     }
   };
 
-  // Handle AI button click
   const handleAIClick = () => {
     alert('AI feature triggered!');
   };
 
-  // Handle like button click
   const handleLike = (postId) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
@@ -79,7 +74,6 @@ const Feed = () => {
     );
   };
 
-  // Handle comment button click
   const handleCommentClick = (postId) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
@@ -90,7 +84,6 @@ const Feed = () => {
     );
   };
 
-  // Handle comment submission
   const handleCommentSubmit = (postId, e) => {
     e.preventDefault();
     setPosts((prevPosts) =>
@@ -103,7 +96,6 @@ const Feed = () => {
     alert(`Comment submitted: ${posts.find((post) => post.id === postId).commentText}`);
   };
 
-  // Handle share button click
   const handleShare = (postId) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
@@ -112,7 +104,7 @@ const Feed = () => {
     );
   };
 
-  // Handle 3-dot menu click
+ 
   const handleMenuClick = (postId) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>

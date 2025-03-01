@@ -32,46 +32,45 @@ body {
 }
 
 .icon:hover {
-  transform: scale(1.2); /* Enlarge icon on hover */
+  transform: scale(1.2); 
 }
 
-/* Unique Colors and Effects for Each Icon */
 .camera-icon:hover {
-  color: #3b82f6; /* Blue for camera */
-  filter: drop-shadow(0 0 5px #3b82f6); /* Glow effect */
+  color: #3b82f6; 
+  filter: drop-shadow(0 0 5px #3b82f6);
 }
 
 .attachment-icon:hover {
-  color: #6b7280; /* Gray for attachment */
-  filter: drop-shadow(0 0 5px #6b7280); /* Glow effect */
+  color: #6b7280; 
+  filter: drop-shadow(0 0 5px #6b7280);
 }
 
 .ai-icon:hover {
-  color: #ef4444; /* Red for AI */
-  filter: drop-shadow(0 0 5px #ef4444); /* Glow effect */
+  color: #ef4444; 
+  filter: drop-shadow(0 0 5px #ef4444); 
 }
 
 .like-icon:hover {
-  color: #ef4444; /* Red for like */
-  filter: drop-shadow(0 0 5px #ef4444); /* Glow effect */
+  color: #ef4444; 
+  filter: drop-shadow(0 0 5px #ef4444); 
 }
 
 .comment-icon:hover {
-  color: #6b7280; /* Gray for comment */
-  filter: drop-shadow(0 0 5px #6b7280); /* Glow effect */
+  color: #6b7280; 
+  filter: drop-shadow(0 0 5px #6b7280); 
 }
 
 .share-icon:hover {
-  color: #10b981; /* Green for share */
-  filter: drop-shadow(0 0 5px #10b981); /* Glow effect */
+  color: #10b981; 
+  filter: drop-shadow(0 0 5px #10b981); 
 }
 
 /* Click Effects */
 .icon:active {
-  transform: scale(0.9); /* Shrink on click */
+  transform: scale(0.9); 
 }
 
-/* Comment Box Animation */
+
 form {
   animation: slideIn 0.3s ease-in-out;
 }
