@@ -7,20 +7,13 @@ const RightSidebar = () => {
     { id: 3, message: 'New comment on your post', time: '40 sec ago', unread: false },
   ]);
 
-  const markAllAsRead = () => {
-    setNotifications((prevNotifications) =>
-      prevNotifications.map((notification) => ({
-        ...notification,
-        unread: false,
-      }))
-    );
-  };
+  
 
   return (
-    <div className="fixed right-20 top-8 w-75 p-2" style={{ height: 'calc(20vh)' }}>
+    <div className="w-[50vh] p-2 overflow-y-auto scrollbar-hide space-y-4 h-[90vh] overflow-hidden" >
       {/* First Box: Search, Profile Photo, Notifications */}
       <div className="bg-white rounded-lg p-4 shadow-lg mb-4">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center cursor-pointer space-x-4">
           <input
             type="text"
             placeholder="Search..."
@@ -36,7 +29,6 @@ const RightSidebar = () => {
           <div className="flex justify-between items-center">
             <h3 className="font-semibold text-sm text-gray-800">Notifications</h3>
             <button
-              onClick={markAllAsRead}
               className="text-green-600 text-sm font-bold hover:text-green-800 transition-colors"
             >
               Mark as Read
