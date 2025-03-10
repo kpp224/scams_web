@@ -7,7 +7,6 @@ import PopularPosts from './Pages/PopularPosts/PopularPosts';
 import Messages from './Pages/Messages/Messages';
 import CreatePost from './Pages/CreatPost/CreatePost';
 import Bookmark from './Pages/Bookmark/Bookmark';
-import Logout from './Pages/Logout/Logout';
 import Login from './Pages/Login/Login';
 
 const App = () => {
@@ -17,7 +16,7 @@ const App = () => {
     <div className='flex'>
       {isAuthenticated && (
         <div className='w-[15%] h-screen'>
-          <Sidebar />
+          <Sidebar setAuth={setIsAuthenticated} />
         </div>
       )}
       <div className={isAuthenticated ? 'w-[85%] h-screen' : 'w-full h-screen'}>
@@ -29,7 +28,6 @@ const App = () => {
           <Route path="/messages" element={isAuthenticated ? <Messages /> : <Navigate to="/login" />} />
           <Route path="/create-post" element={isAuthenticated ? <CreatePost /> : <Navigate to="/login" />} />
           <Route path="/bookmark" element={isAuthenticated ? <Bookmark /> : <Navigate to="/login" />} />
-          <Route path="/logout" element={isAuthenticated ? <Logout /> : <Navigate to="/login" />} />
         </Routes>
       </div>
     </div>
