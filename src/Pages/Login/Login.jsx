@@ -126,7 +126,7 @@ const Login = ({ setAuth }) => {
         <form
           onSubmit={isSignUp ? handleSignUp : handleLogin}
           className="w-full max-w-md p-8 rounded-2xl z-10
-          bg-white/80 backdrop-blur-lg border border-white/30
+          bg-white/0 backdrop-blur-lg border border-white/30
           shadow-lg md:bg-white md:backdrop-blur-0"
         >
           <motion.h1 className="mb-8 text-3xl font-bold text-center text-gray-800">
