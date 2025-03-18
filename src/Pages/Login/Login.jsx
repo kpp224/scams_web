@@ -163,6 +163,8 @@ const Login = ({ setAuth }) => {
             </div>
           )}
 
+          
+
           {/* Password Field */}
           {!isSignUp && (
             <div className="mb-6">
