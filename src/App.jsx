@@ -8,6 +8,11 @@ import Messages from './Pages/Messages/Messages';
 import CreatePost from './Pages/CreatPost/CreatePost';
 import Bookmark from './Pages/Bookmark/Bookmark';
 import Login from './Pages/Login/Login';
+import Security from './Pages/profile/Security';
+import Settings from './Pages/profile/Settings';
+import Help from './Pages/profile/Help';
+import DeleteAccount from './Pages/profile/DeleteAccount';
+import Acitivity from './Pages/profile/Acitivity';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -23,7 +28,13 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
+          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}>
+            <Route path="security" element={<Security />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="help" element={<Help />} />
+            <Route path="delete" element={<DeleteAccount />} />
+            <Route path="activity" element={<Acitivity />} />
+          </Route>
           <Route path="/popular" element={isAuthenticated ? <PopularPosts /> : <Navigate to="/login" />} />
           <Route path="/messages" element={isAuthenticated ? <Messages /> : <Navigate to="/login" />} />
           <Route path="/create-post" element={isAuthenticated ? <CreatePost /> : <Navigate to="/login" />} />

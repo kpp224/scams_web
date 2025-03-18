@@ -4,13 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import loginImage from "../../assests/loginImage.jpeg";
 
 // Animated Tagline Component
-const tagline = "Empowering You to Stay Safe in the Digital World";
+const tagline = "Helping You Stay Secure Online";
 
 const AnimatedTagline = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [isErasing, setIsErasing] = useState(false);
   const [index, setIndex] = useState(0);
 
+  // animation logic
   useEffect(() => {
     const typingSpeed = isErasing ? 40 : Math.random() * (150 - 80) + 80;
 
