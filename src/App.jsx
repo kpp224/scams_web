@@ -8,6 +8,7 @@ import Messages from './Pages/Messages/Messages';
 import CreatePost from './Pages/CreatPost/CreatePost';
 import Bookmark from './Pages/Bookmark/Bookmark';
 import Login from './Pages/Login/Login';
+import SignUp from "./Pages/SignUp/SignUp";
 import Security from './Pages/profile/Security';
 import Settings from './Pages/profile/Settings';
 import Help from './Pages/profile/Help';
@@ -27,6 +28,7 @@ const App = () => {
       <div className={isAuthenticated ? 'w-[85%] h-screen' : 'w-full h-screen'}>
         <Routes>
           <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}>
             <Route path="security" element={<Security />} />
