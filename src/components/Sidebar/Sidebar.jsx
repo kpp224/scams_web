@@ -53,17 +53,17 @@ const Sidebar = ({ setAuth }) => {
 
         {/* Profile */}
         <Link
-          to="/profile"
-          onClick={() => setActiveLink('/profile')}
+          to="/main"
+          onClick={() => setActiveLink('/main')}
           className={`sidebar-icon flex items-center space-x-2 p-2 rounded-md transition-all duration-500 w-full relative ${
-            activeLink === '/profile'
+            activeLink === '/main'
               ? 'bg-black text-white border-l-4 border-blue-500 shadow-md'
               : 'hover:bg-gray-200 hover:text-black'
           }`}
         >
           <FaUser size="20" className="ml-2" />
           <span className="flex-grow text-left hidden lg:inline">Profile</span>
-          {activeLink === '/profile' && (
+          {activeLink === '/main' && (
             <FaArrowRight
               size="14"
               className="text-white absolute right-[5px] transition-transform duration-300 scale-125 hidden md:inline"

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
 import Home from './Pages/Home/Home';
-import Profile from './Pages/profile/Profile';
+import Main from './Pages/profile/Main';
 import PopularPosts from './Pages/PopularPosts/PopularPosts';
 import Messages from './Pages/Messages/Messages';
 import CreatePost from './Pages/CreatPost/CreatePost';
@@ -14,6 +14,7 @@ import Settings from './Pages/profile/Settings';
 import Help from './Pages/profile/Help';
 import DeleteAccount from './Pages/profile/DeleteAccount';
 import Acitivity from './Pages/profile/Acitivity';
+import Profile from './Pages/profile/Profile';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -30,10 +31,11 @@ const App = () => {
           <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}>
+          <Route path="/main" element={isAuthenticated ? <Main /> : <Navigate to="/login" />}>
             <Route path="security" element={<Security />} />
             <Route path="settings" element={<Settings />} />
             <Route path="help" element={<Help />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="delete" element={<DeleteAccount />} />
             <Route path="activity" element={<Acitivity />} />
           </Route>
