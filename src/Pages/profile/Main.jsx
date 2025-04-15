@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, Outlet } from 'react-router-dom';
+import { Link, useLocation, Outlet, useNavigate } from 'react-router-dom';
 import { FaUser, FaLock, FaCog, FaQuestionCircle, FaTrashAlt, FaArrowRight, FaChartLine } from 'react-icons/fa';
 
-const Profile = () => {
+const Main = () => {
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState(location.pathname);
+  const navigate = useNavigate();
+  const [activeLink, setActiveLink] = useState('/main/profile');
 
+  // Redirect to /main/profile by default when Main is loaded
   useEffect(() => {
-    setActiveLink(location.pathname);
-  }, [location.pathname]);
+    if (location.pathname === '/main') {
+      navigate('/main/profile');
+    }
+  }, [location.pathname, navigate]);
 
   return (
-    <div className='bg-gray-100 w-full h-full flex items-center justify-center'>
+    <div className="bg-gray-100 w-full h-full flex items-center justify-center">
       <div className="w-[95%] h-[95%] rounded-2xl bg-[#ffffff] flex items-center justify-start">
         {/* Sidebar Navigation */}
-        <div className='border-r-2 border-gray-100 pl-3 pt-5 w-[20%] h-[92%] flex flex-col items-start justify-start '>
+        <div className="border-r-2 border-gray-100 pl-3 pt-5 w-[20%] h-[92%] flex flex-col items-start justify-start">
           <Link
             to="/main/profile"
             onClick={() => setActiveLink('/main/profile')}
@@ -96,11 +100,9 @@ const Profile = () => {
         </div>
 
         {/* Main Content Area */}
-        <div className='w-[80%] h-[92%] flex items-center justify-center'>
-
+        <div className="w-[80%] h-[92%] flex items-center justify-center">
           <div className="w-[90%] h-[90%] bg-white p-6 rounded-lg shadow-md overflow-y-auto">
             {/* Outlet for nested routes */}
-            
             <Outlet />
           </div>
         </div>
@@ -109,4 +111,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Main;
