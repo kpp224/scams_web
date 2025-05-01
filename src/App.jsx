@@ -4,6 +4,10 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Home from './Pages/Home/Home';
 import CreatePost from './Pages/CreatPost/CreatePost';
 import Feed from './components/Feed/Feed';
+import Signup from './Pages/SignUp/SignUp';
+import Messages from './Pages/Messages/Messages';
+import Bookmark from './Pages/Bookmark/Bookmark'; // Import Bookmark page
+import PopularPosts from './Pages/PopularPosts/PopularPosts'; // Import PopularPosts page
 import Login from './Pages/Login/Login';
 import Main from './Pages/profile/Main'; // Import Main layout
 import Profile from './Pages/profile/Profile'; // Import Profile page
@@ -58,8 +62,14 @@ const App = () => {
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
           <Route path="/create-post" element={isAuthenticated ? <CreatePost addPost={addPost} /> : <Navigate to="/login" />}
           />
-         <Route path="/" element={isAuthenticated ? <Home posts={posts} /> : <Navigate to="/login" />}
-         />
+          <Route path="/" element={isAuthenticated ? <Home posts={posts} /> :   <Navigate to="/login" />}
+          />
+          <Route path="/bookmark" element={isAuthenticated ? <Bookmark /> : <Navigate to="/login" />} /> {/* Add this route */}
+          <Route path="/popular" element={isAuthenticated ? <PopularPosts /> : <Navigate to="/login" />} /> {/* Add this route */}
+          <Route path="/messages" element={isAuthenticated ? <Messages /> : <Navigate to="/login" />} />
+          <Route path="/feed" element={isAuthenticated ? <Feed posts={posts} /> : <Navigate to="/login" />} />
+          <Route path="/signup" element={<Signup />} />
+          {/* Main layout for authenticated users */}
           <Route path="/main" element={isAuthenticated ? <Main /> : <Navigate to="/login" />}>
             <Route path="profile" element={<Profile />} />
             <Route path="settings" element={<Settings />} />

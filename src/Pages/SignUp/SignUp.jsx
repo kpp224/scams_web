@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import signUpImage from "../../assests/loginImage.jpeg"; // Replace with your signup image if different
 
-// Animated Tagline Component
 const tagline = "Helping You Stay Secure Online";
 
 const AnimatedTagline = () => {
@@ -11,7 +10,6 @@ const AnimatedTagline = () => {
   const [isErasing, setIsErasing] = useState(false);
   const [index, setIndex] = useState(0);
 
-  // Animation logic
   useEffect(() => {
     const typingSpeed = isErasing ? 40 : Math.random() * (150 - 80) + 80;
 
@@ -55,29 +53,43 @@ const AnimatedTagline = () => {
 
 const SignUp = () => {
   const [name, setName] = useState("");
-  const [countryCode, setCountryCode] = useState("+91"); // Default country code
-  const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  const [showAdditionalFields, setShowAdditionalFields] = useState(false); // State to toggle additional fields
+  const [countryCode, setCountryCode] = useState("+91");
+  const [mobile, setMobile] = useState("");
   const [otp, setOtp] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const navigate = useNavigate();
 
+  const handleInitialSubmit = (e) => {
+    e.preventDefault();
+
+    // Validation for Name and Email
+    if (!name || !email) {
+      alert("Please fill in both Name and Email.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // Show additional fields after validation
+    setShowAdditionalFields(true);
+  };
+
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Validation
-    if (!name || !mobile || !email || !otp || !dateOfBirth) {
+    // Validation for additional fields
+    if (!mobile || !otp || !dateOfBirth) {
       alert("Please fill all fields.");
       return;
     }
 
     if (!/^\d{10}$/.test(mobile)) {
       alert("Please enter a valid 10-digit mobile number.");
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert("Please enter a valid email address.");
       return;
     }
 
@@ -94,10 +106,9 @@ const SignUp = () => {
     }
 
     // Add your sign-up logic here
-    console.log("Name:", name, "Mobile:", `${countryCode} ${mobile}`, "Email:", email, "OTP:", otp, "Date of Birth:", dateOfBirth);
+    console.log("Name:", name, "Email:", email, "Mobile:", `${countryCode} ${mobile}`, "OTP:", otp, "Date of Birth:", dateOfBirth);
   };
 
-  // Prevent non-numeric input in mobile field
   const handleMobileInput = (e) => {
     const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
     setMobile(value.slice(0, 10)); // Limit to 10 digits
@@ -117,14 +128,13 @@ const SignUp = () => {
       {/* Left Side - Sign Up Form */}
       <div className="w-full md:w-[40%] lg:w-[35%] flex justify-center items-center p-6 h-[90vh] md:h-full relative z-10">
         <form
-          onSubmit={handleSignUp}
+          onSubmit={showAdditionalFields ? handleSignUp : handleInitialSubmit}
           className="w-full max-w-md p-8 rounded-3xl z-10
           bg-white/70 backdrop-blur-md border border-white/30
           shadow-lg md:bg-white/90 md:backdrop-blur-0 overflow-y-auto scrollbar-hide"
           style={{ maxHeight: "90vh" }}
         >
           <motion.h1 className="mb-8 text-3xl font-bold text-center text-gray-800">
-            {/* TRCE - Cybercrime-Inspired Animation */}
             <motion.p
               className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 tracking-wide"
               initial={{ opacity: 0, y: -50 }}
@@ -133,146 +143,153 @@ const SignUp = () => {
             >
               TRCE
             </motion.p>
-
             <AnimatedTagline />
           </motion.h1>
 
-          {/* Name Field */}
-          <div className="mb-6">
-            <label htmlFor="name" className="block text-gray-700 text-lg font-medium mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg
-              focus:outline-none focus:ring-2 focus:ring-blue-500
-              bg-white/50 placeholder-gray-400"
-              placeholder="Enter your name"
-              required
-            />
+          {/* Name and Email Fields */}
+          {!showAdditionalFields && (
+            <>
+              <div className="mb-6">
+                <label htmlFor="name" className="block text-gray-700 text-lg font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded-lg
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-white/50 placeholder-gray-400"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="email" className="block text-gray-700 text-lg font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded-lg
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-white/50 placeholder-gray-400"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </>
+          )}
+
+          {/* Additional Fields */}
+          {showAdditionalFields && (
+            <>
+              <div className="mb-6">
+                <label htmlFor="mobile" className="block text-gray-700 text-lg font-medium mb-2">
+                  Mobile Number
+                </label>
+                <div className="flex">
+                  <select
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    className="w-1/4 p-3 border border-gray-300 rounded-l-lg
+                    focus:outline-none focus:ring-2 focus:ring-blue-500
+                    bg-white/50"
+                  >
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+1">+1 (US)</option>
+                    <option value="+44">+44 (UK)</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="mobile"
+                    value={mobile}
+                    onChange={handleMobileInput}
+                    className="w-3/4 p-3 border border-gray-300 rounded-r-lg
+                    focus:outline-none focus:ring-2 focus:ring-blue-500
+                    bg-white/50 placeholder-gray-400"
+                    placeholder="Enter your mobile number"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="otp" className="block text-gray-700 text-lg font-medium mb-2">
+                  OTP
+                </label>
+                <input
+                  type="text"
+                  id="otp"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                  className="w-full p-3 border border-gray-300 rounded-lg
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-white/50 placeholder-gray-400"
+                  placeholder="Enter OTP"
+                  required
+                />
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="dob" className="block text-gray-700 text-lg font-medium mb-2">
+                  Date of Birth
+                </label>
+                <input
+                  type="date"
+                  id="dob"
+                  value={dateOfBirth}
+                  onChange={(e) => setDateOfBirth(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded-lg
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-white/50 placeholder-gray-400"
+                  required
+                />
+              </div>
+            </>
+          )}
+
+          {/* Google Button */}
+          <div className="flex justify-center">
+            <button
+              type="button"
+              className="flex items-center justify-center w-full mb-3 p-3
+              border border-gray-300 rounded-lg
+              hover:bg-gray-50 focus:outline-none
+              focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+            >
+              <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" className="w-6 h-6" />
+              <span className="ml-2 text-gray-700">Google</span>
+            </button>
           </div>
 
-          {/* Mobile Number Field with Country Code */}
-          <div className="mb-6">
-            <label htmlFor="mobile" className="block text-gray-700 text-lg font-medium mb-2">
-              Mobile Number
-            </label>
-            <div className="flex">
-              <select
-                value={countryCode}
-                onChange={(e) => setCountryCode(e.target.value)}
-                className="w-1/4 p-3 border border-gray-300 rounded-l-lg
-                focus:outline-none focus:ring-2 focus:ring-blue-500
-                bg-white/50"
-              >
-                <option value="+91">+91 (IN)</option>
-                <option value="+1">+1 (US)</option>
-                <option value="+44">+44 (UK)</option>
-                {/* Add more country codes as needed */}
-              </select>
-              <input
-                type="text"
-                id="mobile"
-                value={mobile}
-                onChange={handleMobileInput}
-                className="w-3/4 p-3 border border-gray-300 rounded-r-lg
-                focus:outline-none focus:ring-2 focus:ring-blue-500
-                bg-white/50 placeholder-gray-400"
-                placeholder="Enter your mobile number"
-                required
-              />
-            </div>
-          </div>
+          <hr className="mb-4 text-gray-200"></hr>
 
-          {/* Email Field */}
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-gray-700 text-lg font-medium mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg
-              focus:outline-none focus:ring-2 focus:ring-blue-500
-              bg-white/50 placeholder-gray-400"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-
-          {/* OTP Field */}
-          <div className="mb-6">
-            <label htmlFor="otp" className="block text-gray-700 text-lg font-medium mb-2">
-              OTP
-            </label>
-            <input
-              type="text"
-              id="otp"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))} // Allow only numbers and limit to 6 digits
-              className="w-full p-3 border border-gray-300 rounded-lg
-              focus:outline-none focus:ring-2 focus:ring-blue-500
-              bg-white/50 placeholder-gray-400"
-              placeholder="Enter OTP"
-              required
-            />
-          </div>
-
-          {/* Date of Birth Field */}
-          <div className="mb-6">
-            <label htmlFor="dob" className="block text-gray-700 text-lg font-medium mb-2">
-              Date of Birth
-            </label>
-            <input
-              type="date"
-              id="dob"
-              value={dateOfBirth}
-              onChange={(e) => setDateOfBirth(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg
-              focus:outline-none focus:ring-2 focus:ring-blue-500
-              bg-white/50 placeholder-gray-400"
-              required
-            />
-          </div>
-
-          {/* Sign Up Button */}
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-lg
             hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2
             focus:ring-blue-500 focus:ring-offset-2 mb-4 transition-all duration-300"
           >
-            Sign Up
+            {showAdditionalFields ? "Sign Up" : "Next"}
           </button>
 
-          {/* Google Login Button */}
-          <div className="flex justify-center">
-            <button
-              type="button"
-              className="flex items-center justify-center w-full p-3
-              border border-gray-300 rounded-lg
-              hover:bg-gray-50 focus:outline-none
-              focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-            >
-              <img
-                src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
-                alt="Google"
-                className="w-6 h-6"
-              />
-              <span className="ml-2 text-gray-700">Sign up with Google</span>
-            </button>
-          </div>
-
-          {/* Link to Login Page */}
-          <div className="text-center mt-6">
-            <a href="/login" className="text-blue-600 hover:text-blue-500">
-              Already have an account? Login
-            </a>
+          {/* Login Option */}
+          <div className="text-center mt-4">
+            <p className="text-gray-600">
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                className="text-blue-600 hover:underline hover:text-blue-800"
+              >
+                Login
+              </Link>
+            </p>
           </div>
         </form>
       </div>

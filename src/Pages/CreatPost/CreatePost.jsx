@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaFileUpload, FaRobot } from 'react-icons/fa'; // Import icons
 
 const CreatePost = ({ addPost }) => {
   const [title, setTitle] = useState('');
@@ -13,6 +14,11 @@ const CreatePost = ({ addPost }) => {
       reader.onload = () => resolve(reader.result);
       reader.onerror = (error) => reject(error);
     });
+  };
+
+  const handleAIContent = () => {
+    // Simulate AI-generated content
+    setDescription('This is an AI-generated description for your post. You can edit it as needed.');
   };
 
   const handleSubmit = async (e) => {
@@ -64,6 +70,7 @@ const CreatePost = ({ addPost }) => {
       <div className="w-full max-w-3xl bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Create a New Post</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Post Title */}
           <div>
             <label htmlFor="title" className="block text-lg font-medium text-gray-700 mb-2">
               Post Title
@@ -79,6 +86,7 @@ const CreatePost = ({ addPost }) => {
             />
           </div>
 
+          {/* Post Description */}
           <div>
             <label htmlFor="description" className="block text-lg font-medium text-gray-700 mb-2">
               Post Description
@@ -92,20 +100,33 @@ const CreatePost = ({ addPost }) => {
               rows="5"
               required
             ></textarea>
+            <button
+              type="button"
+              onClick={handleAIContent}
+              className="mt-2 flex items-center space-x-2 text-blue-600 hover:text-blue-800"
+            >
+              <FaRobot className="w-5 h-5" />
+              <span>Generate AI Content</span>
+            </button>
           </div>
 
+          {/* File Upload */}
           <div>
             <label htmlFor="file" className="block text-lg font-medium text-gray-700 mb-2">
               Attach File (Optional)
             </label>
-            <input
-              type="file"
-              id="file"
-              onChange={(e) => setFile(e.target.files[0])}
-              className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            <div className="flex items-center space-x-4">
+              <input
+                type="file"
+                id="file"
+                onChange={(e) => setFile(e.target.files[0])}
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <FaFileUpload className="w-6 h-6 text-gray-500" />
+            </div>
           </div>
 
+          {/* Submit Button */}
           <div className="flex justify-center">
             <button
               type="submit"
