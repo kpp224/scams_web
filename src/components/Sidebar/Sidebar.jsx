@@ -7,26 +7,28 @@ const Sidebar = ({ setAuth }) => {
   const [activeLink, setActiveLink] = useState('/');
   const navigate = useNavigate();
 
+  // Check authentication status on component mount
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (!isAuthenticated) {
-      navigate('/login');
+      navigate('/login'); // Redirect to login if not authenticated
     }
   }, [navigate]);
 
+  // Handle logout functionality
   const handleLogout = () => {
-    setAuth(false);
-    localStorage.removeItem('isAuthenticated');
-    navigate('/login');
-  }
+    setAuth(false); // Update authentication state
+    localStorage.removeItem('isAuthenticated'); // Remove authentication from localStorage
+    navigate('/login'); // Redirect to login page
+  };
 
   return (
-    <div className='h-full w-auto text-black flex flex-col items-start p-4'>
+    <div className="h-full w-auto text-black flex flex-col items-start p-4">
       {/* Logo Section */}
       <div className="logo flex items-center my-4 ml-3 cursor-pointer">
-        <Link to='/'>
+        <Link to="/">
           <img src={TRCELogo} alt="Logo" className="w-20 h-8" />
-        </Link> 
+        </Link>
       </div>
 
       {/* Navigation Links */}
@@ -153,7 +155,7 @@ const Sidebar = ({ setAuth }) => {
       </div>
 
       {/* Logout Button */}
-      <div className="mt-auto mb-4 w-full relative ">
+      <div className="mt-auto mb-4 w-full relative">
         <button
           onClick={handleLogout}
           className={`sidebar-icon flex items-center space-x-2 p-2 rounded-md hover:bg-red-600 hover:text-white transition cursor-pointer duration-300 w-full ${

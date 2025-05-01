@@ -63,9 +63,9 @@ const Login = ({ setAuth }) => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === "user" && password === "p") {
-      setAuth(true);
-      localStorage.setItem("isAuthenticated", "true");
-      navigate("/");
+      setAuth(true); // Update isAuthenticated state in App.jsx
+      localStorage.setItem("isAuthenticated", "true"); // Persist authentication state
+      navigate("/"); // Redirect to the home page
     } else {
       setError(true);
       setTimeout(() => setError(false), 2000);
@@ -128,8 +128,6 @@ const Login = ({ setAuth }) => {
               placeholder="Enter your username"
             />
           </div>
-
-          
 
           {/* Password Field */}
           <div className="mb-6">
