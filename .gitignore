@@ -25,21 +25,7 @@ dist-ssr
 
 
 
-import Main from './Pages/profile/Main'; // Import Main layout
-import Profile from './Pages/profile/Profile'; // Import Profile page
-import Settings from './Pages/profile/Settings'; // Import Settings page
-import Security from './Pages/profile/Security'; // Import Security page
-import Activity from './Pages/profile/Acitivity'; // Import Activity page
-import Help from './Pages/profile/Help'; // Import Help page
-import DeleteAccount from './Pages/profile/DeleteAccount'; // Import Delete Account page
 
 
 
-<Route path="/main" element={isAuthenticated ? <Main /> : <Navigate to="/login" />}>
-            <Route path="profile" element={<Profile />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="security" element={<Security />} />
-            <Route path="activity" element={<Activity />} />
-            <Route path="help" element={<Help />} />
-            <Route path="delete" element={<DeleteAccount />} />
-          </Route>
+

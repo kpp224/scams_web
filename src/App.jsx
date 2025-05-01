@@ -5,6 +5,13 @@ import Home from './Pages/Home/Home';
 import CreatePost from './Pages/CreatPost/CreatePost';
 import Feed from './components/Feed/Feed';
 import Login from './Pages/Login/Login';
+import Main from './Pages/profile/Main'; // Import Main layout
+import Profile from './Pages/profile/Profile'; // Import Profile page
+import Settings from './Pages/profile/Settings'; // Import Settings page
+import Security from './Pages/profile/Security'; // Import Security page
+import Activity from './Pages/profile/Acitivity'; // Import Activity page
+import Help from './Pages/profile/Help'; // Import Help page
+import DeleteAccount from './Pages/profile/DeleteAccount'; // Import Delete Account page
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Define isAuthenticated state
@@ -49,12 +56,18 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
-          <Route
-            path="/create-post"
-            element={isAuthenticated ? <CreatePost addPost={addPost} /> : <Navigate to="/login" />}
+          <Route path="/create-post" element={isAuthenticated ? <CreatePost addPost={addPost} /> : <Navigate to="/login" />}
           />
          <Route path="/" element={isAuthenticated ? <Home posts={posts} /> : <Navigate to="/login" />}
          />
+          <Route path="/main" element={isAuthenticated ? <Main /> : <Navigate to="/login" />}>
+            <Route path="profile" element={<Profile />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="security" element={<Security />} />
+            <Route path="activity" element={<Activity />} />
+            <Route path="help" element={<Help />} />
+            <Route path="delete" element={<DeleteAccount />} />
+          </Route>
         </Routes>
       </div>
     </div>
